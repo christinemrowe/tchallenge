@@ -1,0 +1,22 @@
+<div class="content" role="main">
+  <h1 mat-dialog-title>Create a New Room</h1>
+
+  <div mat-dialog-content>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Room ID</mat-label>
+      <input matInput [(ngModel)]="data.roomID">
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Room Name</mat-label>
+      <input matInput [(ngModel)]="data.roomName">
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions button-spacing>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" (click)="createRoom()">Ok</button>
+  </div>
+</div>

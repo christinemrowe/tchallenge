@@ -1,0 +1,46 @@
+<!-- Header -->
+<app-header></app-header>
+<!-- End Header -->
+
+<!-- Content -->
+<div class="content" role="main">
+  <div class="inner-content">
+    <div *ngIf="!hasRooms; else elseBlock">
+      <h2>No rooms found. Create a room to get started.</h2>
+  
+      <div class="card-container">
+        <div class="add-button card" (click)="openDialog()">
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          <span>Create Room</span>
+        </div>
+      </div>
+    </div>
+
+      <ng-template #elseBlock>
+        <div class="card-container">
+          <div class="add-button card" (click)="openDialog()">
+            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            <span>Create Room</span>
+          </div>
+        </div>
+        <div class="card-container" >
+          <mat-card class="card" *ngFor="let room of roomService.rooms">
+            <mat-card-subtitle>ID: {{room.id}}</mat-card-subtitle>
+            <mat-card-title>{{room.name}}</mat-card-title>
+            <mat-card-content>
+              <p>IMAGE/LOGO OR CONTENT GOES HERE</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>EDIT</button>
+              <button mat-button color="warn">REMOVE</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </ng-template>
+   </div>
+</div>
+<!-- End Content -->
+
+<!-- Footer -->
+<app-footer></app-footer>
+<!-- End Footer -->
